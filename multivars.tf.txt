@@ -1,0 +1,22 @@
+proivder "aws" {
+    region = us-east-1
+}
+
+resource "aws_instance" "multivar" {
+    ami = "ami-026ebd4cfe2c043b2"
+    instance_type = "var.instance_type"
+    tags = {
+        name = var.environment
+    }
+}
+
+---------------------------------------------
+keep var.tf file mention like below
+variable "instance_type" {
+}
+
+--------------------------------------------
+keep below section in separate file as stage.environment
+
+instance_type = "t2.micro"
+environment_name = "stage"
