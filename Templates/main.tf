@@ -5,7 +5,7 @@ resource "aws_iam_user" "template" {
     name = "temper"
 }
 resource "aws_iam_access_key" "accesskey" {
-    user = aws_ima_user.template.name
+    user = aws_iam_user.template.name
 }
 resource "aws_iam_user_policy" "policy" {
     name = "instancepolicycheck"
